@@ -4,7 +4,7 @@ CREATE TABLE "badges_versions" (
   "created_by" INTEGER REFERENCES "users"("id") ON DELETE RESTRICT,
   "title" VARCHAR(255),
   "description" TEXT,
-  "requirements" JSON,
+  "requirements" JSONB,
   PRIMARY KEY ("id", "created_at")
 );
 
@@ -40,5 +40,5 @@ DECLARE
   tenant_id integer := (hasura_session ->> 'x-hasura-tenant-id')::integer;
 BEGIN
   RETURN QUERY
-  SELECT * FROM _create_badge_version(user_id, badge_def_id, (SELECT now() AT TIME ZONE 'UTC'));
+  SELECT * FROM _create_badge_version(tenant_id, badge_def_id, (SELECT now() AT TIME ZONE 'UTC'));
 END; $$ LANGUAGE plpgsql;
