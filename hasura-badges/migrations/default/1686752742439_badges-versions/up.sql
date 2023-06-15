@@ -1,12 +1,18 @@
 CREATE TABLE "badges_versions" (
   "id" INTEGER,
   "created_at" TIMESTAMP NOT NULL DEFAULT now(),
-  "created_by" INTEGER REFERENCES "users"("id") ON DELETE RESTRICT,
+  "created_by" INTEGER NOT NULL REFERENCES "users"("id") ON DELETE RESTRICT,
   "title" VARCHAR(255),
   "description" TEXT,
   "requirements" JSONB,
   PRIMARY KEY ("id", "created_at")
 );
+
+CREATE VIEW "badges_versions_last" AS
+SELECT DISTINCT ON ("id") "id", "created_at", "created_by", "title", "description", "requirements"
+FROM "badges_versions"
+ORDER BY "id", "created_at" DESC;
+
 
 -- Private version of the function
 -- (useful for seeding or testing)
