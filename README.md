@@ -4,7 +4,6 @@
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open_in-GitHub_Codespaces-blue?logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=647616168)
 
 This is a step by step guide to running an [Hasura-based project](https://hasura.io) on your development machine. Keep on reading and you will learn how to build a **fully automated environment** that lets you:
-
 - Run [Postgres](https://hub.docker.com/_/postgres) and [Adminer Web Client](https://hub.docker.com/_/adminer)
 - Run [Hasura Engine](https://hub.docker.com/r/hasura/graphql-engine)
 - Run [Hasura Console](https://hasura.io/docs/latest/hasura-cli/commands/hasura_console/) (with FS Sync) even from [GitPod.io](https://gitpod.io/) or [GitHub Codespaces](https://github.com/features/codespaces)
